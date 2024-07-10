@@ -46,7 +46,13 @@
             client.onConnectionLost = onConnectionLost;
             client.onMessageArrived = onMessageArrived;
 
-            client.connect({onSuccess: onConnect, onFailure: onFailure});
+            var options = {
+                useSSL: true,
+                onSuccess: onConnect,
+                onFailure: onFailure
+            };
+
+            client.connect(options);
         }
 
         function onConnect() {
